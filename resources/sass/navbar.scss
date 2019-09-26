@@ -1,0 +1,17 @@
+$navbar-background-color: #0093AD;
+$navbar-font-color: #fff;
+
+.navbar {
+  background-color: $navbar-background-color;
+  color: $navbar-font-color;
+  a {
+    color: $navbar-font-color;
+
+    &:link {
+      color: $navbar-font-color;
+    }
+  }
+  .nav-item.nav-link {
+    color: $navbar-font-color;
+  }
+}

@@ -1,0 +1,33 @@
+.header {
+  height: 400px;
+
+  .header_wrap {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+
+    .header_content {
+      width: 900px;
+      height: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 50px;
+      color: #fff;
+      text-align: center;
+
+      .header_btns {
+        margin-top: 40px;
+
+        button {
+          padding: 20px 40px;
+          border-radius: 30px;
+        }
+
+        .pick_me_tour {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+}

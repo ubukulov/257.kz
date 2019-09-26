@@ -1,0 +1,70 @@
+.hot-tours {
+  padding: 20px 0px;
+  .card {
+    width: 280px;
+    max-width: 100%;
+
+    .card-img {
+      img {
+        width: 253px;
+        height: 170px;
+        max-width: 100%;
+      }
+
+      .discount-val {
+        font-weight: bold;
+        text-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px;
+        box-shadow: white 0px 0px 0px 3px;
+        background: darkorange;
+        padding: 5px;
+        border-radius: 0 15px 15px 0;
+        color: white;
+        position: absolute;
+        left: 0px;
+        top: 10px;
+      }
+      .hot-country {
+        color: white;
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        font-weight: bold;
+        text-shadow: rgba(0, 0, 0, 0.3) 0px 0px 1px;
+        box-shadow: white 0px 0px 0px 3px;
+        background: rgb(0, 153, 171);
+        padding: 5px 10px 5px 15px;
+        border-radius: 15px 0px 0px 15px;
+      }
+    }
+
+    .card-body {
+      padding: 10px;
+
+      .card-title {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .card-desc {
+        font-size: 12px;
+        height: 100px;
+        overflow: hidden;
+      }
+    }
+
+    .card-price {
+      .card-cost {
+        float: left;
+        .cost-for-person {
+          font-size: 12px;
+        }
+        .hot-price {
+          font-weight: bold;
+        }
+      }
+      .card-button {
+        float: right;
+      }
+    }
+  }
+}
