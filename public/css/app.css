@@ -1,4 +1,23 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
+
+@font-face {
+  font-family: "Yanus Regular";
+  src: url("/fonts/Yanus_Regular.woff");
+}
+
+@font-face {
+  font-family: "Yanus Bold";
+  src: url("/fonts/Yanus_Bold.otf");
+}
+
+* {
+  font-family: "Yanus Regular";
+  font-size: 14px;
+}
+
+.title {
+  font-size: 20px;
+}
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10647,6 +10666,8 @@ a.text-dark:focus {
 .navbar {
   background-color: #0093AD;
   color: #fff;
+  z-index: 10000;
+  width: 100%;
 }
 
 .navbar a {
@@ -10659,6 +10680,32 @@ a.text-dark:focus {
 
 .navbar .nav-item.nav-link {
   color: #fff;
+}
+
+.navbar .select_currency {
+  width: 80px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.navbar .select_city {
+  width: 200px;
+  font-size: 12px;
+  padding-left: 25px;
+}
+
+.navbar .select_city .sc_left_div {
+  float: left;
+  width: 30px;
+  padding-top: 20px;
+}
+
+.navbar .select_city .sc_left_div i {
+  font-size: 20px;
+}
+
+.navbar .select_city .sc_right_div {
+  float: left;
 }
 
 .header {
@@ -10765,5 +10812,79 @@ a.text-dark:focus {
 
 .hot-tours .card .card-price .card-button {
   float: right;
+}
+
+.our_advantages_title {
+  margin-bottom: 40px;
+}
+
+.our_adv_content {
+  padding: 10px;
+}
+
+.our_adv_content .our_adv_icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.our_adv_content .our_adv_icon i {
+  font-size: 45px;
+  color: #7059A3;
+}
+
+.our_adv_content .our_div_title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.our_adv_content .our_div_txt {
+  font-size: 14px;
+}
+
+.comments {
+  width: 350px;
+  height: 300px;
+}
+
+.slick-list {
+  text-align: center;
+}
+
+.footer {
+  background: #E0735E;
+  color: #ffffff;
+  padding: 20px 0px;
+}
+
+.footer_m {
+  border-bottom: 1px dashed #ffffff;
+  padding: 10px 0px;
+}
+
+.footer_menu {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.footer_menu li {
+  display: inline-flex;
+}
+
+.footer_menu li a {
+  color: #ffffff;
+  padding: 5px 10px;
+  text-decoration: underline;
+}
+
+.footer_menu li a:hover {
+  text-decoration: none;
+}
+
+.f_copy p {
+  font-size: 12px;
+  margin-top: 10px;
 }
 

@@ -2,7 +2,11 @@
     <div class="hot-tours">
         <div class="container">
             <div class="hot-title">
-                <h3>Горящие туры из Алматы</h3>
+                <h3>Горящие туры из
+                    <select v-model="selectedCity" v-on:change="changeCityHot(selectedCity)">
+                        <option v-for="city in tourCities" :value="city">{{ city }}</option>
+                    </select>
+                </h3>
             </div>
             <div class="row justify-content-center hot_tours_slider">
                 <div class="col-md-3" v-for="hot in tours">
@@ -11,10 +15,10 @@
                             <img :src="hot.url" :alt="hot.title">
                             <div class="discount-val">
                                 - {{hot.sale}}%
-                        </div>
+                            </div>
                             <div class="hot-country">
                                 {{ hot.country }}
-                        </div>
+                            </div>
                         </div>
 
                         <div class="card-timer"></div>
@@ -32,8 +36,8 @@
                                 <div class="card-cost">
                                     <div class="cost-for-person">Цена на 1 человека:</div>
                                     <div class="hot-price">
-                                        {{hot.price}}
-                                </div>
+                                        {{ convertCurrency(hot.price) }}
+                                    </div>
                                 </div>
                                 <div class="card-button">
                                     <a href="#" class="btn btn-primary">Подробнее</a>
@@ -49,19 +53,49 @@
 
 <script>
     export default {
+        data() {
+            return {
+                selectedCity: 'Алматы'
+            }
+        },
         props: [
-            'tours'
+            'tours',
+            'selectedCurrency',
+            'currency',
+            'tourCities'
         ],
-        mounted() {
-            console.log('Component mounted.')
-        }
+        methods: {
+            convertCurrency(sum) {
+                var price = sum.replace(/[^\d;]/g, '');
+
+                if (this.selectedCurrency == 'usd'){
+                    price = Math.round(price / this.currency.KZT);
+                    return "от "+price+" USD";
+                } else if (this.selectedCurrency == 'eur'){
+                    price = Math.round((price / this.currency.KZT) * this.currency.EUR);
+                    return "от "+price+" EUR";
+                } else {
+                    return "от "+price+" KZT";
+                }
+            },
+            changeCityHot(city) {
+                this.selectedCity = city;
+            }
+        }/*,
+        computed: {
+            activeTours: function () {
+                return this.tours.filter((tour) => {
+                    return tour.city == this.selectedCity;
+                })
+            }
+        }*/
     }
 </script>
 
 <style>
     .slick-prev:before {
         font-size: 70px !important;
-        color: #0093AD !important;
+        color: #7059A3;
         left: -50px;
         top: -13px;
         background: white;
@@ -69,7 +103,7 @@
     }
     .slick-next:before {
         font-size: 70px !important;
-        color: #0093AD !important;
+        color: #7059A3;
         left: 0px;
         top: 0px;
         background: white;

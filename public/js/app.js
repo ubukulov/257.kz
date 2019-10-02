@@ -1829,6 +1829,46 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CityComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CityComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['cities'],
+  data: function data() {
+    return {
+      selectedCity: 'Алматы'
+    };
+  },
+  methods: {
+    changeCity: function changeCity(city) {
+      this.$emit('changeCity', city);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HotComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HotComponent.vue?vue&type=script&lang=js& ***!
@@ -1887,11 +1927,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tours'],
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      selectedCity: 'Алматы'
+    };
+  },
+  props: ['tours', 'selectedCurrency', 'currency', 'tourCities'],
+  methods: {
+    convertCurrency: function convertCurrency(sum) {
+      var price = sum.replace(/[^\d;]/g, '');
+
+      if (this.selectedCurrency == 'usd') {
+        price = Math.round(price / this.currency.KZT);
+        return "от " + price + " USD";
+      } else if (this.selectedCurrency == 'eur') {
+        price = Math.round(price / this.currency.KZT * this.currency.EUR);
+        return "от " + price + " EUR";
+      } else {
+        return "от " + price + " KZT";
+      }
+    },
+    changeCityHot: function changeCityHot(city) {
+      this.selectedCity = city;
+    }
   }
+  /*,
+  computed: {
+     activeTours: function () {
+         return this.tours.filter((tour) => {
+             return tour.city == this.selectedCity;
+         })
+     }
+  }*/
+
 });
 
 /***/ }),
@@ -6353,7 +6426,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.slick-prev:before {\n    font-size: 70px !important;\n    color: #0093AD !important;\n    left: -50px;\n    top: -13px;\n    background: white;\n    position: absolute;\n}\n.slick-next:before {\n    font-size: 70px !important;\n    color: #0093AD !important;\n    left: 0px;\n    top: 0px;\n    background: white;\n    position: absolute;\n}\n", ""]);
+exports.push([module.i, "\n.slick-prev:before {\n    font-size: 70px !important;\n    color: #7059A3;\n    left: -50px;\n    top: -13px;\n    background: white;\n    position: absolute;\n}\n.slick-next:before {\n    font-size: 70px !important;\n    color: #7059A3;\n    left: 0px;\n    top: 0px;\n    background: white;\n    position: absolute;\n}\n", ""]);
 
 // exports
 
@@ -37820,6 +37893,90 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CityComponent.vue?vue&type=template&id=94762312&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CityComponent.vue?vue&type=template&id=94762312& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "select_city" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "sc_right_div" }, [
+      _c("span", [_vm._v("Наши офисы")]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selectedCity,
+              expression: "selectedCity"
+            }
+          ],
+          staticClass: "form-control",
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectedCity = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                return _vm.changeCity(_vm.selectedCity)
+              }
+            ]
+          }
+        },
+        _vm._l(_vm.cities, function(city, index) {
+          return _c("option", { domProps: { value: city.title } }, [
+            _vm._v(_vm._s(city.title))
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Схема проезда к офису")])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "sc_left_div" }, [
+      _c("i", { staticClass: "fas fa-map-marker-alt" })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HotComponent.vue?vue&type=template&id=1bf4e9ca&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HotComponent.vue?vue&type=template&id=1bf4e9ca& ***!
@@ -37837,7 +37994,50 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "hot-tours" }, [
     _c("div", { staticClass: "container" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "hot-title" }, [
+        _c("h3", [
+          _vm._v("Горящие туры из\n                "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.selectedCity,
+                  expression: "selectedCity"
+                }
+              ],
+              on: {
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.selectedCity = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                  function($event) {
+                    return _vm.changeCityHot(_vm.selectedCity)
+                  }
+                ]
+              }
+            },
+            _vm._l(_vm.tourCities, function(city) {
+              return _c("option", { domProps: { value: city } }, [
+                _vm._v(_vm._s(city))
+              ])
+            }),
+            0
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -37852,7 +38052,7 @@ var render = function() {
                   _vm._v(
                     "\n                            - " +
                       _vm._s(hot.sale) +
-                      "%\n                    "
+                      "%\n                        "
                   )
                 ]),
                 _vm._v(" "),
@@ -37860,7 +38060,7 @@ var render = function() {
                   _vm._v(
                     "\n                            " +
                       _vm._s(hot.country) +
-                      "\n                    "
+                      "\n                        "
                   )
                 ])
               ]),
@@ -37893,13 +38093,13 @@ var render = function() {
                     _c("div", { staticClass: "hot-price" }, [
                       _vm._v(
                         "\n                                    " +
-                          _vm._s(hot.price) +
-                          "\n                            "
+                          _vm._s(_vm.convertCurrency(hot.price)) +
+                          "\n                                "
                       )
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(1, true)
+                  _vm._m(0, true)
                 ])
               ])
             ])
@@ -37911,14 +38111,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "hot-title" }, [
-      _c("h3", [_vm._v("Горящие туры из Алматы")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -50098,6 +50290,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('hot-component', __webpack_require__(/*! ./components/HotComponent.vue */ "./resources/js/components/HotComponent.vue")["default"]);
+Vue.component('city-component', __webpack_require__(/*! ./components/CityComponent.vue */ "./resources/js/components/CityComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50105,7 +50298,10 @@ Vue.component('hot-component', __webpack_require__(/*! ./components/HotComponent
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    selectedCurrency: 'kzt'
+  }
 });
 
 /***/ }),
@@ -50152,6 +50348,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/CityComponent.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/CityComponent.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CityComponent_vue_vue_type_template_id_94762312___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CityComponent.vue?vue&type=template&id=94762312& */ "./resources/js/components/CityComponent.vue?vue&type=template&id=94762312&");
+/* harmony import */ var _CityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CityComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/CityComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CityComponent_vue_vue_type_template_id_94762312___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CityComponent_vue_vue_type_template_id_94762312___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CityComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CityComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/CityComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CityComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CityComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CityComponent.vue?vue&type=template&id=94762312&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/CityComponent.vue?vue&type=template&id=94762312& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CityComponent_vue_vue_type_template_id_94762312___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CityComponent.vue?vue&type=template&id=94762312& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CityComponent.vue?vue&type=template&id=94762312&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CityComponent_vue_vue_type_template_id_94762312___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CityComponent_vue_vue_type_template_id_94762312___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

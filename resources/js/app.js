@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('hot-component', require('./components/HotComponent.vue').default);
+Vue.component('city-component', require('./components/CityComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +30,7 @@ Vue.component('hot-component', require('./components/HotComponent.vue').default)
 
 const app = new Vue({
     el: '#app',
+    data: {
+        selectedCurrency: 'kzt'
+    }
 });

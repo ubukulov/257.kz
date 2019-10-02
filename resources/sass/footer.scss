@@ -1,0 +1,32 @@
+.footer {
+  background: #E0735E;
+  color: #ffffff;
+  padding: 20px 0px;
+}
+.footer_m {
+  border-bottom: 1px dashed #ffffff;
+  padding: 10px 0px;
+}
+.footer_menu {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+
+  li {
+    display: inline-flex;
+
+    a {
+      color: #ffffff;
+      padding: 5px 10px;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+.f_copy p {
+  font-size: 12px;
+  margin-top: 10px;
+}

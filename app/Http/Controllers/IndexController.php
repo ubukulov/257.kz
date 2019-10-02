@@ -9,6 +9,11 @@ class IndexController extends BaseController
     public function welcome()
     {
         $hotTours = $this->getHotTours();
-        return view('welcome', compact('hotTours'));
+        $arr_cities = [];
+        foreach(json_decode($hotTours) as $hotTour) {
+            $arr_cities[] = $hotTour->city;
+        }
+        $arr_cities = array_unique($arr_cities);
+        return view('welcome', compact('hotTours', 'arr_cities'));
     }
 }

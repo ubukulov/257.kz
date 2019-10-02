@@ -1,5 +1,19 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@font-face {
+  font-family: "Yanus Regular";
+  src: url("/fonts/Yanus_Regular.woff");
+}
+@font-face {
+  font-family: "Yanus Bold";
+  src: url("/fonts/Yanus_Bold.otf");
+}
+* {
+  font-family: "Yanus Regular";
+  font-size: 14px;
+}
+.title {
+  font-size: 20px;
+}
 
 // Variables
 @import 'variables';
@@ -15,3 +29,12 @@
 
 // Hot Tours
 @import "hot_tours";
+
+// Our Advantages
+@import "our_advantages";
+
+// Reviews
+@import "reviews";
+
+// Footer
+@import "footer";

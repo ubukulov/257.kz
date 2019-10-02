@@ -4,6 +4,10 @@ $navbar-font-color: #fff;
 .navbar {
   background-color: $navbar-background-color;
   color: $navbar-font-color;
+  //position: fixed;
+  z-index: 10000;
+  width: 100%;
+
   a {
     color: $navbar-font-color;
 
@@ -13,5 +17,28 @@ $navbar-font-color: #fff;
   }
   .nav-item.nav-link {
     color: $navbar-font-color;
+  }
+  .select_currency {
+    width: 80px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .select_city {
+    width: 200px;
+    font-size: 12px;
+    padding-left: 25px;
+
+    .sc_left_div {
+      float: left;
+      width: 30px;
+      padding-top: 20px;
+
+      i {
+        font-size:20px;
+      }
+    }
+    .sc_right_div {
+      float: left;
+    }
   }
 }
