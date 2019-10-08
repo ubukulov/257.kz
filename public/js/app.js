@@ -1851,8 +1851,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['cities'],
   data: function data() {
@@ -37912,10 +37910,6 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "sc_right_div" }, [
-      _c("span", [_vm._v("Наши офисы")]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
       _c(
         "select",
         {
@@ -37955,9 +37949,7 @@ var render = function() {
           ])
         }),
         0
-      ),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Схема проезда к офису")])
+      )
     ])
   ])
 }

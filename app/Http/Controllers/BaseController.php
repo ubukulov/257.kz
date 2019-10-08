@@ -18,16 +18,16 @@ class BaseController extends Controller
 
     /**
      * Горящие туры
-     * @return string
+     * @param $country string
+     * @param $city string
+     * @return object
      */
-    public function getHotTours()
+    public function getHotTours($country = '', $city = '')
     {
         if (Cache::has('hot_tours')) {
             $result = Cache::get('hot_tours');
         } else {
-            $COUNTRY_ = '';
-            $CITY_ = '';
-            $url = 'https://www.afinadb.kz/export.php?'.$COUNTRY_.$CITY_;
+            $url = 'https://www.afinadb.kz/export.php?'.$country.$city;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

@@ -19,6 +19,10 @@
   font-size: 20px;
 }
 
+.content {
+  padding: 5px 0px;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10664,22 +10668,23 @@ a.text-dark:focus {
 }
 
 .navbar {
-  background-color: #0093AD;
+  background-color: #0093AD !important;
   color: #fff;
   z-index: 10000;
   width: 100%;
 }
 
-.navbar a {
+.navbar .navbar-nav a {
+  color: #fff !important;
+  font-size: 16px;
+}
+
+.navbar .navbar-nav a:link {
   color: #fff;
 }
 
-.navbar a:link {
-  color: #fff;
-}
-
-.navbar .nav-item.nav-link {
-  color: #fff;
+.navbar .dropdown-menu a {
+  color: #0093AD !important;
 }
 
 .navbar .select_currency {
@@ -10706,6 +10711,23 @@ a.text-dark:focus {
 
 .navbar .select_city .sc_right_div {
   float: left;
+}
+
+.dropdown-menu {
+  background: #fff;
+}
+
+.dropdown-menu a {
+  color: #0099AB !important;
+}
+
+.dropdown-menu a:hover {
+  background: #0093AD;
+  color: #fff !important;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
 }
 
 .header {

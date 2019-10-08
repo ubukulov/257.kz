@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('content')
     <div class="header" data-vide-bg="/video/header">
         <div class="header_wrap">
@@ -30,7 +30,5 @@
 
     @include('partials.our_advantages')
 
-    @include('partials.reviews')
-
-    @include('pattern.footer')
+{{--    @include('partials.reviews')--}}
 @stop

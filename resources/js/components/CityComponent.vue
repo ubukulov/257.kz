@@ -4,11 +4,9 @@
             <i class="fas fa-map-marker-alt"></i>
         </div>
         <div class="sc_right_div">
-            <span>Наши офисы</span> <br>
             <select class="form-control" v-model="selectedCity" @change="changeCity(selectedCity)">
                 <option v-for="(city, index) in cities" :value="city.title">{{ city.title }}</option>
             </select>
-            <a href="#">Схема проезда к офису</a>
         </div>
     </div>
 </template>
