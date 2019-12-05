@@ -23,6 +23,10 @@
   padding: 5px 0px;
 }
 
+.trip_hacker {
+  padding: 20px 0px;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10667,11 +10671,17 @@ a.text-dark:focus {
   }
 }
 
+.nav-top {
+  background: #0093AD;
+}
+
 .navbar {
   background-color: #0093AD !important;
   color: #fff;
   z-index: 10000;
-  width: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 .navbar .navbar-nav a {
@@ -10731,7 +10741,7 @@ a.text-dark:focus {
 }
 
 .header {
-  height: 400px;
+  height: 500px;
 }
 
 .header .header_wrap {
@@ -10908,5 +10918,20 @@ a.text-dark:focus {
 .f_copy p {
   font-size: 12px;
   margin-top: 10px;
+}
+
+.e-28 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 20px 50px 50px;
+  overflow: hidden;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.e-29 {
+  height: 120px;
+  background: center center no-repeat #fafafa;
+  border-radius: 5px;
 }
 

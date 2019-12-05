@@ -1,12 +1,16 @@
 $navbar-background-color: #0093AD;
 $navbar-font-color: #fff;
-
+.nav-top {
+  background: #0093AD;
+}
 .navbar {
   background-color: $navbar-background-color !important;
   color: $navbar-font-color;
   //position: fixed;
   z-index: 10000;
-  width: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  max-width: 100%;
 
   .navbar-nav {
     a {

@@ -1,0 +1,14 @@
+.e-28 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  margin: 20px 50px 50px;
+  overflow: hidden;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.e-29 {
+  height: 120px;
+  background: center center no-repeat rgb(250, 250, 250);
+  border-radius: 5px;
+}

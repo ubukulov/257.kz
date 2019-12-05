@@ -8,6 +8,7 @@ class IndexController extends BaseController
 {
     public function welcome()
     {
+        $this->seo()->setTitle('Турфирма 257 в Казахстане');
         $hotTours = $this->getHotTours();
         $arr_cities = [];
         foreach(json_decode($hotTours) as $hotTour) {

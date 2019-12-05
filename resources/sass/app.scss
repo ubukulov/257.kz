@@ -17,7 +17,9 @@
 .content {
   padding: 5px 0px;
 }
-
+.trip_hacker {
+  padding: 20px 0px;
+}
 // Variables
 @import 'variables';
 
@@ -41,3 +43,6 @@
 
 // Footer
 @import "footer";
+
+// Our Partners
+@import "our_partners";

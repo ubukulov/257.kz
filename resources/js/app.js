@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('hot-component', require('./components/HotComponent.vue').default);
 Vue.component('city-component', require('./components/CityComponent.vue').default);
+Vue.component('hot-tours', require('./components/Hottours.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
