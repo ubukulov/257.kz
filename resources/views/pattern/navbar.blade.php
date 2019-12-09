@@ -40,7 +40,7 @@
                         Открыть агентство
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Условия франчайзинга</a>
+                        <a class="dropdown-item" href="{{ route('franchising-terms') }}">Условия франчайзинга</a>
                         <a class="dropdown-item" href="https://afinadb.kz/" target="_blank">Вход для франчайзинга</a>
                     </div>
                 </li>
@@ -49,45 +49,50 @@
                         Страны
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        @foreach($countries as $index=>$country)
+                            @if($index < 5)
+                                <a class="dropdown-item" href="{{ $country->url() }}">
+                                    <img width="25" src="{{ $country->flag() }}" alt="{{ $country->title }}">&nbsp;{{ $country->title }}
+                                </a>
+                            @endif
+                        @endforeach
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="{{ route('countries') }}">Все страны</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                {{--<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Туры
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">из Алматы</a>
+                        <a class="dropdown-item" href="#">из Нур-Султана (Астаны)</a>
+                        <a class="dropdown-item" href="#">из Актобе</a>
                     </div>
-                </li>
-                <li class="nav-item">
+                </li>--}}
+                {{--<li class="nav-item">
                     <a class="nav-link" href="#">Отели</a>
-                </li>
-                <li class="nav-item">
+                </li>--}}
+                {{--<li class="nav-item">
                     <a class="nav-link" href="#">Круизы</a>
-                </li>
+                </li>--}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        О нас
+                        Компания
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('about.company') }}">О компании</a>
-                        <a class="dropdown-item" href="#">Сотрудники компании</a>
+                        <a class="dropdown-item" href="{{ route('about.company') }}">О нас</a>
+                        <a class="dropdown-item" href="{{ route('contacts') }}">Контакты</a>
+                        {{--<a class="dropdown-item" href="#">Сотрудники компании</a>
                         <a class="dropdown-item" href="#">Наши партнеры</a>
                         <a class="dropdown-item" href="#">Наши преимущества</a>
                         <a class="dropdown-item" href="#">Отзывы клиентов</a>
-                        <a class="dropdown-item" href="#">Как заказать тур</a>
+                        <a class="dropdown-item" href="#">Как заказать тур</a>--}}
                     </div>
                 </li>
-                <li class="nav-item">
+                {{--<li class="nav-item">
                     <a class="nav-link" href="#">Контакты</a>
-                </li>
+                </li>--}}
             </ul>
 
             <div class="select_currency">

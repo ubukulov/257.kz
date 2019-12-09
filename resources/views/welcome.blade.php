@@ -6,5 +6,12 @@
     @include('partials.our_advantages')
     @include('partials.our_partners')
 
+    <div class="our_franchises">
+        <h3>Наши офисы</h3>
+        <div class="row">
+            @each('partials.our_franchises', $franchises, 'franchise')
+        </div>
+    </div>
+
 {{--    @include('partials.reviews')--}}
 @stop

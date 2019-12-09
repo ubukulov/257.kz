@@ -10935,3 +10935,109 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
+@font-face {
+  font-family: Bravo !important;
+  src: url(/fonts/BravoSC.woff);
+}
+
+.fr_h1 {
+  text-align: center;
+}
+
+.fr_h1 h1 {
+  font-family: Bravo;
+  font-size: 30px;
+  color: #FFE11B;
+  text-transform: uppercase;
+  word-spacing: 2px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.fr_h2 h2 {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  margin-top: 10%;
+  text-transform: uppercase;
+}
+
+.at-txt1 {
+  font-size: 30px;
+  color: green;
+  font-weight: bold;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.our_icon {
+  text-align: center;
+  font-size: 40px;
+  width: 100px;
+  margin: 0 auto;
+  border: 1px solid #0093AD;
+  border-radius: 50%;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.our_content_title {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 30px;
+  color: #7059A3;
+}
+
+.our_content {
+  padding: 3%;
+  background: rgba(224, 115, 94, 0.3);
+}
+
+.our_col_title {
+  color: #7059A3;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pre_icon {
+  text-align: center;
+  font-size: 60px;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.pre_col_title {
+  color: #E0735E;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* contacts */
+
+.fr_view .fr_image {
+  height: 200px;
+  background: no-repeat center;
+  background-size: cover;
+}
+
+.fr_view .fr_image img {
+  width: 100%;
+  max-height: 200px;
+}
+
+.fr_view .fr_title {
+  margin: 10px 0 5px 0;
+  color: #3396c7;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.fr_view i {
+  color: #3396c7;
+}
+
+/* contacts */
+

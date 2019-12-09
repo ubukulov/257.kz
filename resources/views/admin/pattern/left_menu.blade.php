@@ -13,6 +13,20 @@
         </a>
     </li>
 
+    <li>
+        <a href="{{ route('admin.country.index') }}">
+            <i class="fa fa-files-o"></i>
+            <span>Список страны</span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ route('admin.franchise.index') }}">
+            <i class="fa fa-files-o"></i>
+            <span>Список франшизов</span>
+        </a>
+    </li>
+
     {{--<li>
         <a href="pages/widgets.html">
             <i class="fa fa-th"></i> <span>Widgets</span>

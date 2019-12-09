@@ -18,7 +18,7 @@ Breadcrumbs::register('service.show', function ($breadcrumbs, $page) {
 // О нас
 Breadcrumbs::register('company.show', function ($breadcrumbs, $page) {
     $breadcrumbs->parent('homepage');
-    $breadcrumbs->push('О нас', route('service.index'));
+    $breadcrumbs->push('Компания');
     $breadcrumbs->push($page->title);
 });
 
@@ -26,4 +26,17 @@ Breadcrumbs::register('company.show', function ($breadcrumbs, $page) {
 Breadcrumbs::register('hot.show', function ($breadcrumbs, $title = null) {
     $breadcrumbs->parent('homepage');
     $breadcrumbs->push($title);
+});
+
+// Страны
+Breadcrumbs::register('countries', function ($breadcrumbs) {
+    $breadcrumbs->parent('homepage');
+    $breadcrumbs->push('Страны');
+});
+
+// Стран
+Breadcrumbs::register('country.show', function ($breadcrumbs, $country) {
+    $breadcrumbs->parent('homepage');
+    $breadcrumbs->push('Страны', route('countries'));
+    $breadcrumbs->push($country->title);
 });

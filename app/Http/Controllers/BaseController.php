@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Country;
 use App\Models\Currency;
 use Illuminate\Http\Request;
 use Cache;
@@ -17,6 +18,7 @@ class BaseController extends Controller
     {
         View::share('cities', $this->getCities());
         View::share('currency', $this->getCurrency());
+        View::share('countries', $this->getCountries());
     }
 
     /**
@@ -74,5 +76,16 @@ class BaseController extends Controller
         }
 
         return $currency;
+    }
+
+    public function getCountries()
+    {
+        /*if (Cache::has('countries')) {
+            $countries = Cache::get('countries');
+        } else {
+            $countries = Country::all();
+            Cache::put('countries', $countries, 2592000);
+        }*/
+        return Country::all();
     }
 }

@@ -10,9 +10,11 @@ class Country extends Model
     use Sluggable;
 
     protected $table = 'countries';
+    protected $imagePath = 'uploads/countries/';
+    protected $imagePathThumbs = '/uploads/countries/thumbs/';
 
     protected $fillable = [
-        'title', 'alias', 'active'
+        'title', 'alias', 'active', 'flag', 'short_description', 'full_description', 'keywords'
     ];
 
     protected $dates = [
@@ -31,5 +33,15 @@ class Country extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function flag()
+    {
+        return asset($this->imagePathThumbs.$this->flag);
+    }
+
+    public function url()
+    {
+        return route('country', ['alias' => $this->alias]);
     }
 }

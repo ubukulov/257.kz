@@ -31,3 +31,13 @@ Route::get('/company', 'CompanyController@about')->name('about.company');
 Route::get('/hottours/almaty', 'HotController@almaty')->name('hot.almaty');
 Route::get('/hottours/nur-sultan', 'HotController@nurSultan')->name('hot.nur-sultan');
 Route::get('/hottours/aktobe', 'HotController@aktobe')->name('hot.aktobe');
+
+# Условия франчайзинга
+Route::get('/franchising-terms', 'IndexController@franchisingTerms')->name('franchising-terms');
+
+# Страны
+Route::get('/countries', 'CountryController@countries')->name('countries');
+Route::get('/country/{alias}', 'CountryController@country')->name('country');
+
+# Контакты
+Route::get('/contacts', 'PageController@contacts')->name('contacts');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Franchise;
 
 class IndexController extends BaseController
 {
@@ -15,6 +16,12 @@ class IndexController extends BaseController
             $arr_cities[] = $hotTour->city;
         }
         $arr_cities = array_unique($arr_cities);
-        return view('welcome', compact('hotTours', 'arr_cities'));
+        $franchises = Franchise::where(['active' => 1])->get();
+        return view('welcome', compact('hotTours', 'arr_cities', 'franchises'));
+    }
+
+    public function franchisingTerms()
+    {
+        return view('franchising-terms');
     }
 }
