@@ -7,6 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+Vue.config.devtools = false;
 
 /**
  * The following block of code may be used to automatically register your
@@ -18,10 +19,15 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+var csrf = $('meta[name="csrf-token"]').attr('content');
+axios.defaults.headers.common['X-CSRF-TOKEN'] = csrf;
+axios.defaults.headers
 
 Vue.component('hot-component', require('./components/HotComponent.vue').default);
 Vue.component('city-component', require('./components/CityComponent.vue').default);
 Vue.component('hot-tours', require('./components/Hottours.vue').default);
+Vue.component('pick-me-tour', require('./components/PickMeTour.vue').default);
+Vue.component('installment-tours', require('./components/InstallmentTours.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,6 +38,7 @@ Vue.component('hot-tours', require('./components/Hottours.vue').default);
 const app = new Vue({
     el: '#app',
     data: {
-        selectedCurrency: 'kzt'
+        selectedCurrency: 'kzt',
+        urlForLead: 'https://www.afinadb.kz/ajax'
     }
 });
