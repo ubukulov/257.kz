@@ -14,6 +14,12 @@ class BaseController extends Controller
 {
     use SEOToolsTrait;
 
+    protected $currencies = [
+        0 => 'kzt',
+        1 => 'usd',
+        2 => 'eur'
+    ];
+
     public function __construct()
     {
         View::share('cities', $this->getCities());
@@ -23,7 +29,12 @@ class BaseController extends Controller
         if (!isset($_SESSION['selected_city'])) {
             $_SESSION['selected_city'] = 1;
         }
+        if (!isset($_SESSION['selected_currency'])) {
+            $_SESSION['selected_currency'] = 0;
+        }
         View::share('selected_city', $_SESSION['selected_city']);
+        View::share('selected_currency', $_SESSION['selected_currency']);
+        View::share('currencies', $this->currencies);
     }
 
     /**

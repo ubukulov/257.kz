@@ -38,4 +38,11 @@ class IndexController extends BaseController
         $_SESSION['selected_city'] = $city_id;
         return response('Город успешно выбрано');
     }
+
+    public function changeCurrency(Request $request)
+    {
+        $currency = $request->input('curr');
+        $_SESSION['selected_currency'] = $currency;
+        return response('Валюта успешно выбрано');
+    }
 }

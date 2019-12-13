@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <hot-component :tour-cities="{{ json_encode($arr_cities) }}" :currency="{{ $currency }}" :selected-currency="selectedCurrency"></hot-component>
+    <hot-component :tour-cities="{{ json_encode($arr_cities) }}" :currency="{{ $currency }}" :selected-currency="{{ $selected_currency }}" :currencies="{{ json_encode($currencies) }}"></hot-component>
 
     @include('partials.our_advantages')
     @include('partials.our_partners')

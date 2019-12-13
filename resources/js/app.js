@@ -26,6 +26,7 @@ Vue.component('city-component', require('./components/CityComponent.vue').defaul
 Vue.component('hot-tours', require('./components/Hottours.vue').default);
 Vue.component('pick-me-tour', require('./components/PickMeTour.vue').default);
 Vue.component('installment-tours', require('./components/InstallmentTours.vue').default);
+Vue.component('currency', require('./components/Currency.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -36,7 +37,6 @@ Vue.component('installment-tours', require('./components/InstallmentTours.vue').
 const app = new Vue({
     el: '#app',
     data: {
-        selectedCurrency: 'kzt',
-        urlForLead: 'https://www.afinadb.kz/ajax'
+        urlForLead: 'https://www.afinadb.kz/ajax',
     }
 });

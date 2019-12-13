@@ -43,9 +43,25 @@ $navbar-font-color: #fff;
       border: none;
       color: #fff;
       font-size: 16px;
+      cursor: pointer;
 
       option {
         font-size: 16px;
+        cursor: pointer;
+      }
+    }
+  }
+  .select_currency {
+    select {
+      background: #0093AD;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+
+      option {
+        font-size: 16px;
+        cursor: pointer;
       }
     }
   }

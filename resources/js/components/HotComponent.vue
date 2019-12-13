@@ -64,16 +64,18 @@
         props: [
             'selectedCurrency',
             'currency',
-            'tourCities'
+            'tourCities',
+            'currencies'
         ],
         methods: {
             convertCurrency(sum) {
                 var price = sum.replace(/[^\d;]/g, '');
+                var vl = this.currencies[this.selectedCurrency];
 
-                if (this.selectedCurrency === 'usd'){
+                if (vl === 'usd'){
                     price = Math.round(price / this.currency.KZT);
                     return "от "+price+" USD";
-                } else if (this.selectedCurrency === 'eur'){
+                } else if (vl === 'eur'){
                     price = Math.round((price / this.currency.KZT) * this.currency.EUR);
                     return "от "+price+" EUR";
                 } else {

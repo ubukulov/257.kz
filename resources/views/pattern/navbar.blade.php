@@ -95,13 +95,7 @@
                 </li>--}}
             </ul>
 
-            <div class="select_currency">
-                <select class="form-control" v-model="selectedCurrency">
-                    <option value="kzt" selected>KZT</option>
-                    <option value="usd">USD</option>
-                    <option value="eur">EUR</option>
-                </select>
-            </div>
+            <currency :currency="{{ $selected_currency }}" :currencies="{{ json_encode($currencies) }}"></currency>
 
             <city-component :cities="{{$cities}}" :city="{{ $selected_city }}"></city-component>
         </div>

@@ -45,3 +45,4 @@ Route::get('/contacts', 'PageController@contacts')->name('contacts');
 Route::get('/get/hot-tours', 'IndexController@getHotToursList');
 
 Route::post('/city/change', 'IndexController@changeCity');
+Route::post('/currency/change', 'IndexController@changeCurrency');
