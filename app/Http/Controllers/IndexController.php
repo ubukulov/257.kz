@@ -17,11 +17,17 @@ class IndexController extends BaseController
         }
         $arr_cities = array_unique($arr_cities);
         $franchises = Franchise::where(['active' => 1])->get();
-        return view('welcome', compact('hotTours', 'arr_cities', 'franchises'));
+        return view('welcome', compact( 'arr_cities', 'franchises'));
     }
 
     public function franchisingTerms()
     {
         return view('franchising-terms');
+    }
+
+    public function getHotToursList()
+    {
+        $hotTours = $this->getHotTours();
+        return $hotTours;
     }
 }

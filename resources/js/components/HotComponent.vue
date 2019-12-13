@@ -1,24 +1,24 @@
 <template>
     <div class="hot-tours">
-        <div class="container">
-            <div class="hot-title">
-                <h3>Горящие туры из
+        <div class="hot-title">
+            <h3>Горящие туры из
                     <select v-model="selectedCity" v-on:change="changeCityHot(selectedCity)">
-                        <option v-for="city in tourCities" :value="city">{{ city }}</option>
-                    </select>
-                </h3>
-            </div>
-            <div class="row justify-content-center hot_tours_slider">
-                <div class="col-md-3" v-for="hot in tours">
-                    <div class="card">
+                <option v-for="city in tourCities" :value="city">{{ city }}</option>
+            </select>
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hot_tours_slider">
+                    <div class="card" v-for="hot in hot_tours">
                         <div class="card-img">
                             <img :src="hot.url" :alt="hot.title">
                             <div class="discount-val">
                                 - {{hot.sale}}%
-                            </div>
+                                </div>
                             <div class="hot-country">
                                 {{ hot.country }}
-                            </div>
+                                </div>
                         </div>
 
                         <div class="card-timer"></div>
@@ -26,18 +26,18 @@
                         <div class="card-body">
                             <div class="card-title">
                                 {{ hot.title }}
-                            </div>
+                                </div>
 
                             <div class="card-desc">
                                 {{ hot.text }}
-                            </div>
+                                </div>
 
                             <div class="card-price">
                                 <div class="card-cost">
                                     <div class="cost-for-person">Цена на 1 человека:</div>
                                     <div class="hot-price">
                                         {{ convertCurrency(hot.price) }}
-                                    </div>
+                                        </div>
                                 </div>
                                 <div class="card-button">
                                     <a href="#" class="btn btn-primary">Купить</a>
@@ -52,14 +52,16 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
         data() {
             return {
-                selectedCity: 'Алматы'
+                selectedCity: 'Алматы',
+                tours: [],
+                hot_tours: []
             }
         },
         props: [
-            'tours',
             'selectedCurrency',
             'currency',
             'tourCities'
@@ -68,10 +70,10 @@
             convertCurrency(sum) {
                 var price = sum.replace(/[^\d;]/g, '');
 
-                if (this.selectedCurrency == 'usd'){
+                if (this.selectedCurrency === 'usd'){
                     price = Math.round(price / this.currency.KZT);
                     return "от "+price+" USD";
-                } else if (this.selectedCurrency == 'eur'){
+                } else if (this.selectedCurrency === 'eur'){
                     price = Math.round((price / this.currency.KZT) * this.currency.EUR);
                     return "от "+price+" EUR";
                 } else {
@@ -80,15 +82,23 @@
             },
             changeCityHot(city) {
                 this.selectedCity = city;
+                this.hot_tours = this.tours;
+                this.hot_tours = this.hot_tours.filter(x => x.city === city);
+            },
+            getHotTours(){
+                axios.get('/get/hot-tours')
+                    .then(res => {
+                        this.tours = res.data;
+                        this.hot_tours = res.data.filter(x => x.city === this.selectedCity);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
             }
-        }/*,
-        computed: {
-            activeTours: function () {
-                return this.tours.filter((tour) => {
-                    return tour.city == this.selectedCity;
-                })
-            }
-        }*/
+        },
+        created(){
+            this.getHotTours();
+        }
     }
 </script>
 

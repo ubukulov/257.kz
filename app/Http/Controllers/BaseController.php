@@ -23,20 +23,18 @@ class BaseController extends Controller
 
     /**
      * Горящие туры
-     * @param $country string
-     * @param $city string
      * @return object
      */
-    public function getHotTours($country = '', $city = '')
+    public function getHotTours()
     {
-        if ($country == '') {
-            $url = 'https://old.afinadb.kz/export.php?'.$city;
-        }
-        if ($city == '') {
-            $url = 'https://old.afinadb.kz/export.php?'.$country;
-        }
-        if ($country != '' && $city != '') {
-            $url = 'https://old.afinadb.kz/export.php?'.$country.$city;
+        if (isset($_GET['country']) && !isset($_GET['city'])) {
+            $url = 'https://old.afinadb.kz/export.php?country='.$_GET['country'];
+        } elseif (isset($_GET['city']) && !isset($_GET['country'])) {
+            $url = 'https://old.afinadb.kz/export.php?city='.$_GET['city'];
+        } elseif (isset($_GET['city']) && isset($_GET['country'])) {
+            $url = 'https://old.afinadb.kz/export.php?country='.$_GET['country'].'&city='.$_GET['city'];
+        } else {
+            $url = 'https://old.afinadb.kz/export.php';
         }
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

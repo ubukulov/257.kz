@@ -5,7 +5,7 @@
         </div>
         <div class="sc_right_div">
             <select class="form-control" v-model="selectedCity" @change="changeCity(selectedCity)">
-                <option v-for="(city, index) in cities" :value="city.title">{{ city.title }}</option>
+                <option v-for="(city, index) in cities" :key="city.id" :value="city.id">{{ city.title }}</option>
             </select>
         </div>
     </div>
@@ -18,7 +18,7 @@
         ],
         data(){
             return {
-                selectedCity: 'Алматы'
+                selectedCity: 1
             }
         },
         methods: {

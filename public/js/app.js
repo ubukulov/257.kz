@@ -1855,7 +1855,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['cities'],
   data: function data() {
     return {
-      selectedCity: 'Алматы'
+      selectedCity: 1
     };
   },
   methods: {
@@ -1876,6 +1876,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1929,21 +1931,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      selectedCity: 'Алматы'
+      selectedCity: 'Алматы',
+      tours: [],
+      hot_tours: []
     };
   },
-  props: ['tours', 'selectedCurrency', 'currency', 'tourCities'],
+  props: ['selectedCurrency', 'currency', 'tourCities'],
   methods: {
     convertCurrency: function convertCurrency(sum) {
       var price = sum.replace(/[^\d;]/g, '');
 
-      if (this.selectedCurrency == 'usd') {
+      if (this.selectedCurrency === 'usd') {
         price = Math.round(price / this.currency.KZT);
         return "от " + price + " USD";
-      } else if (this.selectedCurrency == 'eur') {
+      } else if (this.selectedCurrency === 'eur') {
         price = Math.round(price / this.currency.KZT * this.currency.EUR);
         return "от " + price + " EUR";
       } else {
@@ -1952,17 +1957,27 @@ __webpack_require__.r(__webpack_exports__);
     },
     changeCityHot: function changeCityHot(city) {
       this.selectedCity = city;
-    }
-  }
-  /*,
-  computed: {
-     activeTours: function () {
-         return this.tours.filter((tour) => {
-             return tour.city == this.selectedCity;
-         })
-     }
-  }*/
+      this.hot_tours = this.tours;
+      this.hot_tours = this.hot_tours.filter(function (x) {
+        return x.city === city;
+      });
+    },
+    getHotTours: function getHotTours() {
+      var _this = this;
 
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/get/hot-tours').then(function (res) {
+        _this.tours = res.data;
+        _this.hot_tours = res.data.filter(function (x) {
+          return x.city === _this.selectedCity;
+        });
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  },
+  created: function created() {
+    this.getHotTours();
+  }
 });
 
 /***/ }),
@@ -38243,7 +38258,7 @@ var render = function() {
           }
         },
         _vm._l(_vm.cities, function(city, index) {
-          return _c("option", { domProps: { value: city.title } }, [
+          return _c("option", { key: city.id, domProps: { value: city.id } }, [
             _vm._v(_vm._s(city.title))
           ])
         }),
@@ -38284,58 +38299,58 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "hot-tours" }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "hot-title" }, [
-        _c("h3", [
-          _vm._v("Горящие туры из\n                "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.selectedCity,
-                  expression: "selectedCity"
-                }
-              ],
-              on: {
-                change: [
-                  function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.selectedCity = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
-                  },
-                  function($event) {
-                    return _vm.changeCityHot(_vm.selectedCity)
-                  }
-                ]
+    _c("div", { staticClass: "hot-title" }, [
+      _c("h3", [
+        _vm._v("Горящие туры из\n                "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectedCity,
+                expression: "selectedCity"
               }
-            },
-            _vm._l(_vm.tourCities, function(city) {
-              return _c("option", { domProps: { value: city } }, [
-                _vm._v(_vm._s(city))
-              ])
-            }),
-            0
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "row justify-content-center hot_tours_slider" },
-        _vm._l(_vm.tours, function(hot) {
-          return _c("div", { staticClass: "col-md-3" }, [
-            _c("div", { staticClass: "card" }, [
+            ],
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.selectedCity = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                function($event) {
+                  return _vm.changeCityHot(_vm.selectedCity)
+                }
+              ]
+            }
+          },
+          _vm._l(_vm.tourCities, function(city) {
+            return _c("option", { domProps: { value: city } }, [
+              _vm._v(_vm._s(city))
+            ])
+          }),
+          0
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c(
+          "div",
+          { staticClass: "hot_tours_slider" },
+          _vm._l(_vm.hot_tours, function(hot) {
+            return _c("div", { staticClass: "card" }, [
               _c("div", { staticClass: "card-img" }, [
                 _c("img", { attrs: { src: hot.url, alt: hot.title } }),
                 _vm._v(" "),
@@ -38343,7 +38358,7 @@ var render = function() {
                   _vm._v(
                     "\n                            - " +
                       _vm._s(hot.sale) +
-                      "%\n                        "
+                      "%\n                            "
                   )
                 ]),
                 _vm._v(" "),
@@ -38351,7 +38366,7 @@ var render = function() {
                   _vm._v(
                     "\n                            " +
                       _vm._s(hot.country) +
-                      "\n                        "
+                      "\n                            "
                   )
                 ])
               ]),
@@ -38363,7 +38378,7 @@ var render = function() {
                   _vm._v(
                     "\n                            " +
                       _vm._s(hot.title) +
-                      "\n                        "
+                      "\n                            "
                   )
                 ]),
                 _vm._v(" "),
@@ -38371,7 +38386,7 @@ var render = function() {
                   _vm._v(
                     "\n                            " +
                       _vm._s(hot.text) +
-                      "\n                        "
+                      "\n                            "
                   )
                 ]),
                 _vm._v(" "),
@@ -38385,7 +38400,7 @@ var render = function() {
                       _vm._v(
                         "\n                                    " +
                           _vm._s(_vm.convertCurrency(hot.price)) +
-                          "\n                                "
+                          "\n                                    "
                       )
                     ])
                   ]),
@@ -38394,10 +38409,10 @@ var render = function() {
                 ])
               ])
             ])
-          ])
-        }),
-        0
-      )
+          }),
+          0
+        )
+      ])
     ])
   ])
 }

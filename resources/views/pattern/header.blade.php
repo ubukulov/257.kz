@@ -10,12 +10,12 @@
 
                         <div class="header_btns">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <pick-me-tour></pick-me-tour>
                                 </div>
-                                <div class="col-md-6">
+                                {{--<div class="col-md-6">
                                     <installment-tours></installment-tours>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
