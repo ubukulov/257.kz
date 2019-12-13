@@ -8,7 +8,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 Vue.config.devtools = false;
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,7 +20,6 @@ Vue.config.devtools = false;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 var csrf = $('meta[name="csrf-token"]').attr('content');
 axios.defaults.headers.common['X-CSRF-TOKEN'] = csrf;
-axios.defaults.headers
 
 Vue.component('hot-component', require('./components/HotComponent.vue').default);
 Vue.component('city-component', require('./components/CityComponent.vue').default);

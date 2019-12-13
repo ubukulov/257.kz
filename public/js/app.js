@@ -2043,7 +2043,95 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      first_name: '',
+      summ: '',
+      client_comments: ''
+    };
+  },
+  props: [],
+  methods: {
+    showLeadCredit: function showLeadCredit() {
+      $('#lead_ras').removeClass('fade').modal('toggle');
+    },
+    sendLeadCredit: function sendLeadCredit() {
+      if ($("#credit_phone").val().length != 17) {
+        return $("#credit_phone").css({
+          border: '1px solid red'
+        }).focus();
+      }
+
+      if ($("#credit_iin").val().length != 12) {
+        return $("#credit_iin").css({
+          border: '1px solid red'
+        }).focus();
+      }
+
+      var d = {
+        leads_for_credit: {
+          name: this.first_name,
+          phone: $('#credit_phone').val(),
+          iin: $("#credit_iin").val(),
+          txt: 'Купить тур с рассрочкой',
+          sum: this.summ,
+          comment: "Горящие туры - (РАССРОЧКА): --- Комментарий: " + this.client_comments,
+          type: 5,
+          company: 1
+        }
+      };
+      $.post('https://www.afinadb.kz/leads-for-credit', d, function (data) {
+        console.log(data + "| подбор тура");
+      }).done(function () {
+        $('#lead_ras').addClass('fade').modal('toggle');
+      });
+    }
+  },
+  created: function created() {}
+});
 
 /***/ }),
 
@@ -2108,18 +2196,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     sendLead: function sendLead() {
       if (this.first_name.length != '' && this.phone.length != '') {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('https://www.afinadb.kz/ajax', {
+        var d = {
           leads: {
             name: this.first_name,
             phone: this.phone,
             comment: 'Заявка на подбор тура с сайта 257.kz',
             type: '5'
           }
-        }).then(function (res) {
-          console.log(res);
+        };
+        $.post('https://www.afinadb.kz/ajax', d, function (data) {
+          console.log(data + "| подбор тура");
+        }).done(function () {
           $('#modal_lead').addClass('fade').modal('toggle');
-        })["catch"](function (err) {
-          console.log("ошибка", err);
         });
       }
     }
@@ -38320,7 +38408,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-button" }, [
       _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
-        _vm._v("Подробнее")
+        _vm._v("Купить")
       ])
     ])
   }
@@ -38456,19 +38544,223 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-danger",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.showLeadCredit()
+          }
+        }
+      },
+      [_vm._v("Туры в рассрочку")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "lead_ras",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalCenterTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.first_name,
+                            expression: "first_name"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          tabindex: "1",
+                          id: "name",
+                          placeholder: "Ваше имя"
+                        },
+                        domProps: { value: _vm.first_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.first_name = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.summ,
+                            expression: "summ"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "text",
+                          tabindex: "2",
+                          id: "sum",
+                          placeholder: "Сумма"
+                        },
+                        domProps: { value: _vm.summ },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.summ = $event.target.value
+                          }
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.client_comments,
+                            expression: "client_comments"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          cols: "30",
+                          tabindex: "5",
+                          id: "com",
+                          rows: "4",
+                          placeholder: "Комментарий *не обязательно"
+                        },
+                        domProps: { value: _vm.client_comments },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.client_comments = $event.target.value
+                          }
+                        }
+                      })
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    on: {
+                      click: function($event) {
+                        return _vm.sendLeadCredit()
+                      }
+                    }
+                  },
+                  [_vm._v("Отправить запрос")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        {
+          staticClass: "modal-title",
+          staticStyle: { color: "#000" },
+          attrs: { id: "exampleModalLongTitle" }
+        },
+        [_vm._v("Оставьте запрос на рассрочку")]
+      ),
+      _vm._v(" "),
       _c(
         "button",
-        { staticClass: "btn btn-danger", attrs: { type: "button" } },
-        [_vm._v("Туры в рассрочку")]
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          tabindex: "3",
+          id: "credit_phone",
+          placeholder: "Ваш номер телефона"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          tabindex: "4",
+          id: "credit_iin",
+          placeholder: "Ваш ИИН"
+        }
+      })
     ])
   }
 ]
@@ -50811,7 +51103,6 @@ Vue.config.devtools = false;
 
 var csrf = $('meta[name="csrf-token"]').attr('content');
 axios.defaults.headers.common['X-CSRF-TOKEN'] = csrf;
-axios.defaults.headers;
 Vue.component('hot-component', __webpack_require__(/*! ./components/HotComponent.vue */ "./resources/js/components/HotComponent.vue")["default"]);
 Vue.component('city-component', __webpack_require__(/*! ./components/CityComponent.vue */ "./resources/js/components/CityComponent.vue")["default"]);
 Vue.component('hot-tours', __webpack_require__(/*! ./components/Hottours.vue */ "./resources/js/components/Hottours.vue")["default"]);

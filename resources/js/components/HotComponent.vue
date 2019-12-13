@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="card-button">
-                                    <a href="#" class="btn btn-primary">Подробнее</a>
+                                    <a href="#" class="btn btn-primary">Купить</a>
                                 </div>
                             </div>
                         </div>

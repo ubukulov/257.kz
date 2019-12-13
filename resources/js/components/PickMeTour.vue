@@ -51,21 +51,20 @@
             },
             sendLead(){
                 if (this.first_name.length != '' && this.phone.length != '') {
-                    axios.post('https://www.afinadb.kz/ajax', {
+                    let d = {
                         leads: {
                             name: this.first_name,
                             phone: this.phone,
                             comment: 'Заявка на подбор тура с сайта 257.kz',
                             type: '5'
                         }
-                    })
-                        .then(res => {
-                            console.log(res);
-                            $('#modal_lead').addClass('fade').modal('toggle');
-                        })
-                        .catch(err => {
-                            console.log("ошибка", err);
-                        })
+                    };
+
+                    $.post('https://www.afinadb.kz/ajax',d,function(data) {
+                        console.log(data+"| подбор тура");
+                    }).done(function(){
+                        $('#modal_lead').addClass('fade').modal('toggle');
+                    });
                 }
             }
         },
