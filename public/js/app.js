@@ -1838,6 +1838,8 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1848,19 +1850,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['cities'],
+  props: {
+    cities: Array,
+    city: Number
+  },
   data: function data() {
     return {
-      selectedCity: 1
+      selectedCity: this.city
     };
   },
   methods: {
     changeCity: function changeCity(city) {
-      this.$emit('changeCity', city);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/city/change', {
+        city_id: this.selectedCity
+      }).then(function (res) {
+        console.log(res);
+      })["catch"](function (err) {
+        console.log(err);
+      });
     }
   }
 });
@@ -38221,62 +38230,50 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "select_city" }, [
-    _vm._m(0),
+    _c("i", { staticClass: "fas fa-map-marker-alt" }),
     _vm._v(" "),
-    _c("div", { staticClass: "sc_right_div" }, [
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.selectedCity,
-              expression: "selectedCity"
-            }
-          ],
-          staticClass: "form-control",
-          on: {
-            change: [
-              function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.selectedCity = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              },
-              function($event) {
-                return _vm.changeCity(_vm.selectedCity)
-              }
-            ]
+    _c(
+      "select",
+      {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.selectedCity,
+            expression: "selectedCity"
           }
-        },
-        _vm._l(_vm.cities, function(city, index) {
-          return _c("option", { key: city.id, domProps: { value: city.id } }, [
-            _vm._v(_vm._s(city.title))
-          ])
-        }),
-        0
-      )
-    ])
+        ],
+        on: {
+          change: [
+            function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.selectedCity = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            },
+            function($event) {
+              return _vm.changeCity(_vm.selectedCity)
+            }
+          ]
+        }
+      },
+      _vm._l(_vm.cities, function(c, index) {
+        return _c("option", { key: c.id, domProps: { value: c.id } }, [
+          _vm._v(_vm._s(c.title))
+        ])
+      }),
+      0
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "sc_left_div" }, [
-      _c("i", { staticClass: "fas fa-map-marker-alt" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

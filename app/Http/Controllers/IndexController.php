@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Franchise;
+use Cookie;
 
 class IndexController extends BaseController
 {
@@ -29,5 +30,12 @@ class IndexController extends BaseController
     {
         $hotTours = $this->getHotTours();
         return $hotTours;
+    }
+
+    public function changeCity(Request $request)
+    {
+        $city_id = $request->input('city_id');
+        $_SESSION['selected_city'] = $city_id;
+        return response('Город успешно выбрано');
     }
 }

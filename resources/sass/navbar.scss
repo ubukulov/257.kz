@@ -38,17 +38,15 @@ $navbar-font-color: #fff;
     font-size: 12px;
     padding-left: 25px;
 
-    .sc_left_div {
-      float: left;
-      width: 30px;
-      padding-top: 20px;
+    select {
+      background: #0093AD;
+      border: none;
+      color: #fff;
+      font-size: 16px;
 
-      i {
-        font-size:20px;
+      option {
+        font-size: 16px;
       }
-    }
-    .sc_right_div {
-      float: left;
     }
   }
 }

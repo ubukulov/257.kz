@@ -10709,18 +10709,15 @@ a.text-dark:focus {
   padding-left: 25px;
 }
 
-.navbar .select_city .sc_left_div {
-  float: left;
-  width: 30px;
-  padding-top: 20px;
+.navbar .select_city select {
+  background: #0093AD;
+  border: none;
+  color: #fff;
+  font-size: 16px;
 }
 
-.navbar .select_city .sc_left_div i {
-  font-size: 20px;
-}
-
-.navbar .select_city .sc_right_div {
-  float: left;
+.navbar .select_city select option {
+  font-size: 16px;
 }
 
 .dropdown-menu {

@@ -103,7 +103,7 @@
                 </select>
             </div>
 
-            <city-component :cities="{{$cities}}"></city-component>
+            <city-component :cities="{{$cities}}" :city="{{ $selected_city }}"></city-component>
         </div>
     </nav>
 </div>

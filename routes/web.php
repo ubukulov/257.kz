@@ -43,3 +43,5 @@ Route::get('/country/{alias}', 'CountryController@country')->name('country');
 Route::get('/contacts', 'PageController@contacts')->name('contacts');
 
 Route::get('/get/hot-tours', 'IndexController@getHotToursList');
+
+Route::post('/city/change', 'IndexController@changeCity');

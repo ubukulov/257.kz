@@ -19,6 +19,11 @@ class BaseController extends Controller
         View::share('cities', $this->getCities());
         View::share('currency', $this->getCurrency());
         View::share('countries', $this->getCountries());
+        session_start();
+        if (!isset($_SESSION['selected_city'])) {
+            $_SESSION['selected_city'] = 1;
+        }
+        View::share('selected_city', $_SESSION['selected_city']);
     }
 
     /**

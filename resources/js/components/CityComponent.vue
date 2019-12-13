@@ -1,29 +1,36 @@
 <template>
     <div class="select_city">
-        <div class="sc_left_div">
-            <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <div class="sc_right_div">
-            <select class="form-control" v-model="selectedCity" @change="changeCity(selectedCity)">
-                <option v-for="(city, index) in cities" :key="city.id" :value="city.id">{{ city.title }}</option>
-            </select>
-        </div>
+        <i class="fas fa-map-marker-alt"></i>
+
+        <select v-model="selectedCity" @change="changeCity(selectedCity)">
+            <option v-for="(c, index) in cities" :key="c.id" :value="c.id">{{ c.title }}</option>
+        </select>
     </div>
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
-        props: [
-            'cities'
-        ],
+        props: {
+            cities: Array,
+            city: Number
+        },
         data(){
             return {
-                selectedCity: 1
+                selectedCity: this.city
             }
         },
         methods: {
             changeCity(city) {
-                this.$emit('changeCity', city);
+                axios.post('/city/change', {
+                    city_id: this.selectedCity
+                })
+                    .then(res => {
+                        console.log(res);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
             }
         }
     }
