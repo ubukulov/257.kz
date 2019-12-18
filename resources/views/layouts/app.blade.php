@@ -20,8 +20,6 @@
 
     @include('pattern.header')
 
-    @include('partials.trip_hacker')
-
     <div class="content">
         <div class="container">
             @yield('content')
