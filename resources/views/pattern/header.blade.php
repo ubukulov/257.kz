@@ -1,4 +1,4 @@
-<div class="header" data-vide-bg="/video/header" @if(Route::currentRouteName() != 'home') style="height: 300px !important;" @endif>
+<div class="header" data-vide-bg="/video/header" style="height: 300px !important;">
     <div class="header_wrap">
         <div class="header_content">
             <div class="container">
