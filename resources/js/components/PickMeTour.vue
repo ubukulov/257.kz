@@ -20,7 +20,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" v-model="phone" placeholder="Введите номер телефона">
+                                    <input id="pick_phone_number" type="text" class="form-control" v-model="phone" placeholder="Введите номер телефона">
                                 </div>
                             </div>
                         </div>

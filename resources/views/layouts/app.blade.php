@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/slick.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/slick-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
 </head>
 <body>
 <div id="app">
@@ -34,21 +34,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/slick.min.js') }}"></script>
+<script src="{{ asset('js/slick.js') }}"></script>
+<script defer src="{{ asset('js/scripts.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.hot_tours_slider').slick({
-            autoplay: false,
-            arrows : true,
-            dots : false,
-            infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 4
-        });
-        $("#credit_phone").mask("+7 (999)-999-9999");
-        $("#credit_iin").mask("999999999999");
-    });
-</script>
 </body>
 </html>

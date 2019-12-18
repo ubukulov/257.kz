@@ -10854,8 +10854,13 @@ a.text-dark:focus {
   float: right;
 }
 
+.slick-slide {
+  margin: 0 5px !important;
+}
+
 .our_advantages_title {
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .our_adv_content {

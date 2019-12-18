@@ -39210,6 +39210,7 @@ var render = function() {
                         ],
                         staticClass: "form-control",
                         attrs: {
+                          id: "pick_phone_number",
                           type: "text",
                           placeholder: "Введите номер телефона"
                         },
