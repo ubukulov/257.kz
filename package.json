@@ -24,7 +24,6 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "cors": "^2.8.5",
         "gulp": "^4.0.2",
         "yarn": "^1.17.3"
     }

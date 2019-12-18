@@ -35,8 +35,5 @@ Vue.component('currency', require('./components/Currency.vue').default);
  */
 
 const app = new Vue({
-    el: '#app',
-    data: {
-        urlForLead: 'https://www.afinadb.kz/ajax',
-    }
+    el: '#app'
 });

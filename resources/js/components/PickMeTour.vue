@@ -50,6 +50,14 @@
                 $('#modal_lead').removeClass('fade').modal('toggle');
             },
             sendLead(){
+                if(this.first_name.length == '') {
+                    return $("#first_name").css({border:'1px solid red'}).focus();
+                }
+
+                if(this.phone.length == '') {
+                    return $("#phone_number").css({border:'1px solid red'}).focus();
+                }
+
                 if (this.first_name.length != '' && this.phone.length != '') {
                     let d = {
                         leads: {

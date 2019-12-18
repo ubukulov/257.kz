@@ -38,23 +38,19 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/slick.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-<script>
-    $('.hot_tours_slider').slick({
-        autoplay: false,
-        arrows : true,
-        dots : false,
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 4
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.hot_tours_slider').slick({
+            autoplay: false,
+            arrows : true,
+            dots : false,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 4
+        });
+        $("#credit_phone").mask("+7 (999)-999-9999");
+        $("#credit_iin").mask("999999999999");
     });
-
-    $('.slider_com').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-    });
-    $("#credit_phone").mask("+7 (999)-999-9999");
-    $("#credit_iin").mask("999999999999");
 </script>
 </body>
 </html>
