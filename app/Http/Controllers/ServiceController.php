@@ -17,6 +17,7 @@ class ServiceController extends BaseController
     # Авиабилеты
     public function aviabilety()
     {
+        $this->seo()->setTitle('Авиабилеты');
         $page = Page::findOrFail(1);
         return view('services.avia', compact('page'));
     }
@@ -24,6 +25,7 @@ class ServiceController extends BaseController
     # Страхование
     public function strahovanie()
     {
+        $this->seo()->setTitle('Страхование');
         $page = Page::findOrFail(2);
         return view('services.insurance', compact('page'));
     }
@@ -31,6 +33,7 @@ class ServiceController extends BaseController
     # Рассрочка
     public function rassrochka()
     {
+        $this->seo()->setTitle('Рассрочка');
         $page = Page::findOrFail(3);
         return view('services.credit', compact('page'));
     }
@@ -38,6 +41,7 @@ class ServiceController extends BaseController
     # Ограничение на выезд
     public function ogranichenieNaVyezd()
     {
+        $this->seo()->setTitle('Ограничение на выезд');
         $page = Page::findOrFail(4);
         return view('services.closed', compact('page'));
     }
@@ -45,6 +49,7 @@ class ServiceController extends BaseController
     # Способы оплаты
     public function sposobyOplaty()
     {
+        $this->seo()->setTitle('Способы оплаты');
         $page = Page::findOrFail(5);
         return view('services.pay', compact('page'));
     }
@@ -52,6 +57,7 @@ class ServiceController extends BaseController
     # Бонусная карта
     public function bonusnayaKarta()
     {
+        $this->seo()->setTitle('Бонусная карта');
         $page = Page::findOrFail(6);
         return view('services.bonus', compact('page'));
     }
