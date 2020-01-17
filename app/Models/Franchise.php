@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Franchise extends Model
 {
     protected $fillable = [
-        'title', 'address', 'phones', 'image'
+        'title', 'address', 'phones', 'image', 'active'
     ];
 
     protected $dates = [

@@ -5,7 +5,7 @@
 
     {{--<hot-component :tour-cities="{{ json_encode($arr_cities) }}" :currency="{{ $currency }}" :selected-currency="{{ $selected_currency }}" :currencies="{{ json_encode($currencies) }}"></hot-component>--}}
 
-    <iframe src="https://triphacker.kz/hot_tour/widget?company_id=7" border="0" width="100%" height="650px" style="border:0"></iframe>
+    <iframe src="https://triphacker.kz/hot_tour/widget?company_id=7" border="0" width="100%" height="740px" style="border:0"></iframe>
 
     @include('partials.our_advantages')
     @include('partials.our_partners')
