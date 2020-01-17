@@ -7,6 +7,7 @@
                 <th>ID</th>
                 <th>Пользователь</th>
                 <th>Оценка</th>
+                <th>Статус</th>
                 <th>Действие</th>
                 </thead>
 
@@ -16,6 +17,13 @@
                         <td>{{ $review->id }}</td>
                         <td>{{ $review->name }}</td>
                         <td>{{ $review->rating }}</td>
+                        <td>
+                            @if($review->active == 1)
+                                Активно
+                            @else
+                                Не активно
+                            @endif
+                        </td>
                         <td>
                             <a href="{{ route('admin.review.show', ['id' => $review->id]) }}" class="btn btn-primary">Показать на сайте</a>
                         </td>
