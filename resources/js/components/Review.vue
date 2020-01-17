@@ -14,7 +14,7 @@
 
             <div class="review_body">
                 <div class="review_rating mb-4">
-                    <star-rating :rating="review.rating" :star-size="20" :read-only="true"></star-rating>
+                    <star-rating :round-start-rating="false" :rating="review.rating" :star-size="20" :read-only="true"></star-rating>
                 </div>
                 <div class="review_like mb-4">
                     <span>Понравилось:</span>
@@ -37,9 +37,9 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Оставить отзыв</h5>
+                        <h4 class="modal-title" id="exampleModalLongTitle">Оставить отзыв</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span class="iks" aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body container">
@@ -107,6 +107,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal" id="thank_you" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Готово</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="iks" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-center">
+                        Отзыв был добавлен! После проверки модератором он будет виден
+                    </div>
+
+                    <div class="modal-footer text-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -159,6 +180,7 @@
                     .then(res => {
                         console.log(res)
                         $('#modal_review').addClass('fade').modal('toggle');
+                        $('#thank_you').removeClass('fade').modal('toggle');
                     })
                     .catch(e => {
                         console.log(e)
@@ -179,3 +201,11 @@
         }
     }
 </script>
+<style scoped="">
+    .iks {
+        font-size: 30px;
+    }
+    .modal-body {
+        font-size: 20px;
+    }
+</style>

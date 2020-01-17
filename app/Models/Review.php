@@ -19,7 +19,7 @@ class Review extends Model
             ->select(DB::raw('reviews.*, users.name, cities.title as city_title, countries.title as country_title, from_unixtime(reviews.start_date, "%d %M %Y") as s_d, from_unixtime(reviews.end_date, "%d %M %Y") as e_d'))
             ->join('users', 'users.id', '=', 'reviews.user_id')
             ->join('cities', 'cities.id', '=', 'reviews.city_id')
-            ->join('countries', 'countries.id', '=', 'reviews.city_id')
+            ->join('countries', 'countries.id', '=', 'reviews.country_id')
             ->where(['reviews.active' => 1])
             ->get();
         ReviewResource::withoutWrapping();
