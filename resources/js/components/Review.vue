@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button type="button" class="btn btn-success" @click="showReviewForm()">Написать отзыв</button>
+        <button type="button" class="btn btn-success" @click="showReviewForm()">Оставить отзыв</button>
 
         <div v-for="review in reviews" class="review">
             <div class="review_head">
@@ -28,7 +28,7 @@
             </div>
 
             <div class="review_footer">
-                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;Период отдыха: <strong>с {{ review.s_d }} до {{ review.e_d }}</strong>
+                <i class="far fa-calendar-alt"></i>&nbsp;&nbsp;Период отдыха: <strong>с {{ review.s_d.toLowerCase() }} до {{ review.e_d.toLowerCase() }}</strong>
             </div>
         </div>
 
@@ -39,7 +39,7 @@
                     <div class="modal-header">
                         <h4 class="modal-title" id="exampleModalLongTitle">Оставить отзыв</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span class="iks" aria-hidden="true">&times;</span>
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body container">
@@ -90,12 +90,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Пюлсы</label>
+                                    <label>Понравилось</label>
                                     <textarea v-model="positive" cols="30" rows="4" class="form-control"></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Минусы</label>
+                                    <label>Не понравилось</label>
                                     <textarea v-model="negative" cols="30" rows="4" class="form-control"></textarea>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                     <div class="modal-header">
                         <h4 class="modal-title" id="exampleModalLabel">Готово</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span class="iks" aria-hidden="true">&times;</span>
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body text-center">
@@ -202,9 +202,6 @@
     }
 </script>
 <style scoped="">
-    .iks {
-        font-size: 30px;
-    }
     .modal-body {
         font-size: 20px;
     }

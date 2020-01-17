@@ -7079,7 +7079,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.iks[data-v-097b3983] {\n    font-size: 30px;\n}\n.modal-body[data-v-097b3983] {\n    font-size: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.modal-body[data-v-097b3983] {\n    font-size: 20px;\n}\n", ""]);
 
 // exports
 
@@ -39521,7 +39521,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c(
-        "h5",
+        "h4",
         {
           staticClass: "modal-title",
           staticStyle: { color: "#000" },
@@ -39580,7 +39580,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v("Написать отзыв")]
+        [_vm._v("Оставить отзыв")]
       ),
       _vm._v(" "),
       _vm._l(_vm.reviews, function(review) {
@@ -39643,7 +39643,12 @@ var render = function() {
             _c("i", { staticClass: "far fa-calendar-alt" }),
             _vm._v("  Период отдыха: "),
             _c("strong", [
-              _vm._v("с " + _vm._s(review.s_d) + " до " + _vm._s(review.e_d))
+              _vm._v(
+                "с " +
+                  _vm._s(review.s_d.toLowerCase()) +
+                  " до " +
+                  _vm._s(review.e_d.toLowerCase())
+              )
             ])
           ])
         ])
@@ -39884,7 +39889,7 @@ var render = function() {
                       ),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
-                        _c("label", [_vm._v("Пюлсы")]),
+                        _c("label", [_vm._v("Понравилось")]),
                         _vm._v(" "),
                         _c("textarea", {
                           directives: [
@@ -39910,7 +39915,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "form-group" }, [
-                        _c("label", [_vm._v("Минусы")]),
+                        _c("label", [_vm._v("Не понравилось")]),
                         _vm._v(" "),
                         _c("textarea", {
                           directives: [
@@ -39994,11 +39999,7 @@ var staticRenderFns = [
             "aria-label": "Close"
           }
         },
-        [
-          _c("span", { staticClass: "iks", attrs: { "aria-hidden": "true" } }, [
-            _vm._v("×")
-          ])
-        ]
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
     ])
   },
@@ -40045,11 +40046,9 @@ var staticRenderFns = [
                     }
                   },
                   [
-                    _c(
-                      "span",
-                      { staticClass: "iks", attrs: { "aria-hidden": "true" } },
-                      [_vm._v("×")]
-                    )
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
                   ]
                 )
               ]),

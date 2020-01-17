@@ -27,6 +27,10 @@
   padding: 20px 0px;
 }
 
+.close span {
+  font-size: 30px;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10777,7 +10781,7 @@ a.text-dark:focus {
   margin-top: 40px;
 }
 
-.header .header_wrap .header_content .header_btns button {
+.header .header_wrap .header_content .header_btns .pick_me_tour {
   padding: 20px 40px;
   border-radius: 30px;
 }
@@ -10898,14 +10902,16 @@ a.text-dark:focus {
 }
 
 .review {
-  margin: 40px 0px;
-  border: 1px solid #ccc;
+  margin: 10px 0px;
+  border: 1px solid #7059A3;
   border-radius: 10px;
 }
 
 .review .review_head {
-  background: #ccc;
+  background: #7059A3;
   padding: 5px 20px;
+  border-radius: 6px 6px 0px 0px;
+  color: #fff;
 }
 
 .review .review_head .review_icon {
@@ -11100,4 +11106,23 @@ a.text-dark:focus {
 }
 
 /* contacts */
+
+.breadcrumb {
+  background: none !important;
+}
+
+.breadcrumb .breadcrumb-item {
+  font-size: 18px;
+}
+
+.breadcrumb .breadcrumb-item a {
+  font-size: 18px;
+}
+
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: url("/img/right-arrow.png");
+}
 

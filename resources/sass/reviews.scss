@@ -7,13 +7,15 @@
 }
 
 .review {
-  margin: 40px 0px;
-  border: 1px solid #ccc;
+  margin: 10px 0px;
+  border: 1px solid #7059A3;
   border-radius: 10px;
 
   .review_head {
-    background: #ccc;
+    background: #7059A3;
     padding: 5px 20px;
+    border-radius: 6px 6px 0px 0px;
+    color: #fff;
 
     .review_icon {
       width: 30px;

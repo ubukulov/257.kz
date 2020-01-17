@@ -20,6 +20,11 @@
 .trip_hacker {
   padding: 20px 0px;
 }
+.close {
+  span {
+    font-size: 30px;
+  }
+}
 // Variables
 @import 'variables';
 
@@ -49,3 +54,6 @@
 
 // Franchise page
 @import "franchise";
+
+// Breadcrumbs
+@import "breadcrumbs";

@@ -1,0 +1,17 @@
+.breadcrumb {
+  background: none !important;
+  .breadcrumb-item {
+    font-size: 18px;
+
+    a {
+      font-size: 18px;
+    }
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: url("/img/right-arrow.png");
+  }
+}
