@@ -16,10 +16,14 @@ Breadcrumbs::register('service.show', function ($breadcrumbs, $page) {
 });
 
 // О нас
-Breadcrumbs::register('company.show', function ($breadcrumbs, $page) {
+Breadcrumbs::register('company.show', function ($breadcrumbs, $page = null, $title = '') {
     $breadcrumbs->parent('homepage');
     $breadcrumbs->push('Компания');
-    $breadcrumbs->push($page->title);
+    if ($page) {
+        $breadcrumbs->push($page->title);
+    } else {
+        $breadcrumbs->push($title);
+    }
 });
 
 // Горящие туры
