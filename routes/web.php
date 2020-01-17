@@ -46,3 +46,8 @@ Route::get('/get/hot-tours', 'IndexController@getHotToursList');
 
 Route::post('/city/change', 'IndexController@changeCity');
 Route::post('/currency/change', 'IndexController@changeCurrency');
+
+# Отзывы
+Route::get('/reviews', 'ReviewController@index')->name('review.index');
+Route::post('/reviews', 'ReviewController@store');
+Route::post('/reviews/list', 'ReviewController@getReviewList');

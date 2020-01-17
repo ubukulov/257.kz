@@ -27,6 +27,7 @@ Vue.component('hot-tours', require('./components/Hottours.vue').default);
 Vue.component('pick-me-tour', require('./components/PickMeTour.vue').default);
 Vue.component('installment-tours', require('./components/InstallmentTours.vue').default);
 Vue.component('currency', require('./components/Currency.vue').default);
+Vue.component('review', require('./components/Review.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

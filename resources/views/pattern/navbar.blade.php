@@ -83,10 +83,11 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('about.company') }}">О нас</a>
                         <a class="dropdown-item" href="{{ route('contacts') }}">Контакты</a>
+                        <a class="dropdown-item" href="{{ route('review.index') }}">Отзывы клиентов</a>
                         {{--<a class="dropdown-item" href="#">Сотрудники компании</a>
                         <a class="dropdown-item" href="#">Наши партнеры</a>
                         <a class="dropdown-item" href="#">Наши преимущества</a>
-                        <a class="dropdown-item" href="#">Отзывы клиентов</a>
+
                         <a class="dropdown-item" href="#">Как заказать тур</a>--}}
                     </div>
                 </li>

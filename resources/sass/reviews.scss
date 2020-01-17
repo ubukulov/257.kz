@@ -5,3 +5,45 @@
 .slick-list {
   text-align: center;
 }
+
+.review {
+  margin: 40px 0px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  .review_head {
+    background: #ccc;
+    padding: 5px 20px;
+
+    .review_icon {
+      width: 30px;
+      float: left;
+
+      i {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .review_body {
+    padding: 10px 20px;
+
+    .review_like {
+      span {
+        color: green;
+        font-weight: bold;
+      }
+    }
+
+    .review_dislike {
+      span {
+        color: #cc0000;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .review_footer {
+    padding: 10px 20px;
+  }
+}

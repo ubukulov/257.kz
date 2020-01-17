@@ -25,4 +25,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web
     Route::get('/franchise/{id}/edit', 'FranchiseController@edit')->name('admin.franchise.edit');
     Route::post('/franchise/store', 'FranchiseController@store')->name('admin.franchise.store');
     Route::post('/franchise/{id}/update', 'FranchiseController@update')->name('admin.franchise.update');
+
+    # Reviews
+    Route::get('/reviews', 'ReviewController@index')->name('admin.review.index');
+    Route::get('/review/{id}/show', 'ReviewController@show')->name('admin.review.show');
 });

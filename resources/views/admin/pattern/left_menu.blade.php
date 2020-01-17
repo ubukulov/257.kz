@@ -27,6 +27,13 @@
         </a>
     </li>
 
+    <li>
+        <a href="{{ route('admin.review.index') }}">
+            <i class="fa fa-files-o"></i>
+            <span>Список отзывов</span>
+        </a>
+    </li>
+
     {{--<li>
         <a href="pages/widgets.html">
             <i class="fa fa-th"></i> <span>Widgets</span>
