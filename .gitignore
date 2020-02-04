@@ -3,6 +3,7 @@
 /public/storage
 /public/admin_lte
 /public/uploads
+/public/.htaccess
 /storage/*.key
 /vendor
 .env
