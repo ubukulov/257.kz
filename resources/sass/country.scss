@@ -1,0 +1,16 @@
+.country {
+  -webkit-box-shadow: 3px 5px 26px 8px rgba(0,0,0,0.5);
+  -moz-box-shadow: 3px 5px 26px 8px rgba(0,0,0,0.5);
+  box-shadow: 3px 5px 26px 8px rgba(0,0,0,0.5);
+  padding: 10px;
+  border-radius: 10px;
+
+  .country_menu {
+    padding: 10px;
+
+    a {
+      margin-right: 20px;
+      text-decoration: underline;
+    }
+  }
+}

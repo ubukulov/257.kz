@@ -9,6 +9,7 @@ class CountryController extends BaseController
 {
     public function countries()
     {
+        $this->seo()->setTitle('Отдых за рубежом');
         $countries = Country::whereNotNull('short_description')->get();
         return view('country.index', compact('countries'));
     }

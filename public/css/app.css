@@ -11,7 +11,7 @@
 }
 
 * {
-  font-family: "Yanus Regular";
+  font-family: Verdana, Arial, "Yanus Regular", sans-serif;
   font-size: 14px;
 }
 
@@ -29,6 +29,10 @@
 
 .close span {
   font-size: 30px;
+}
+
+.clear {
+  clear: both;
 }
 
 /*!
@@ -11122,5 +11126,20 @@ a.text-dark:focus {
   padding-right: 0.5rem;
   color: #6c757d;
   content: url("/img/right-arrow.png");
+}
+
+.country {
+  box-shadow: 3px 5px 26px 8px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.country .country_menu {
+  padding: 10px;
+}
+
+.country .country_menu a {
+  margin-right: 20px;
+  text-decoration: underline;
 }
 

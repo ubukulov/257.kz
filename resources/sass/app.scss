@@ -8,7 +8,7 @@
   src: url("/fonts/Yanus_Bold.otf");
 }
 * {
-  font-family: "Yanus Regular";
+  font-family: Verdana, Arial, "Yanus Regular", sans-serif;
   font-size: 14px;
 }
 .title {
@@ -24,6 +24,9 @@
   span {
     font-size: 30px;
   }
+}
+.clear {
+  clear: both;
 }
 // Variables
 @import 'variables';
@@ -57,3 +60,6 @@
 
 // Breadcrumbs
 @import "breadcrumbs";
+
+// Countries
+@import "country";
