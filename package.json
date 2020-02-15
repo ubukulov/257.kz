@@ -27,6 +27,6 @@
         "gulp": "^4.0.2",
         "vue-star-rating": "^1.6.1",
         "vuejs-datepicker": "^1.6.2",
-        "yarn": "^1.17.3"
+        "yarn": "^1.22.0"
     }
 }
